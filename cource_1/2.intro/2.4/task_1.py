@@ -1,0 +1,13 @@
+from fastapi import FastAPI
+
+app = FastAPI()
+
+
+@app.get("/user/{name}/{age}")
+async def users(name: str, age: int) -> dict:
+    return {"user_name": name, "user_age": age}
+
+
+@app.get("/products/{product_id}")
+async def detail_view(product_id: int) -> dict:
+    return {"product": f"Stock number {product_id}"}
